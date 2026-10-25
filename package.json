@@ -1,26 +1,61 @@
 {
-  "name": "2026-10-26-01-21-11",
+  "name": "broke-vegas",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "sim": "tsx scripts/sim.ts",
+    "secret-scan": "node scripts/secret-scan.mjs",
+    "qa": "playwright test",
+    "deck": "tsx scripts/generate-deck.ts"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "1.3.1",
+    "@radix-ui/react-slot": "1.5.0",
+    "@radix-ui/react-tabs": "1.2.1",
+    "@react-three/drei": "10.7.9",
+    "@react-three/fiber": "9.8.2",
+    "@react-three/postprocessing": "3.2.2",
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.118.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "detect-gpu": "5.0.70",
+    "gsap": "3.15.0",
+    "lightweight-charts": "5.2.1",
+    "lucide-react": "1.61.0",
     "next": "16.4.3",
+    "postprocessing": "6.39.5",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "recharts": "3.10.1",
+    "tailwind-merge": "3.7.0",
+    "three": "0.186.1",
+    "zod": "4.6.7",
+    "zustand": "5.0.16"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
     "@tailwindcss/turbopack": "^4",
-    "@types/node": "^20",
+    "@types/node": "22.20.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "0.186.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
+    "fast-check": "4.10.2",
+    "pptxgenjs": "4.0.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "4.23.15",
+    "typescript": "^5",
+    "vitest": "5.0.5"
   }
 }
