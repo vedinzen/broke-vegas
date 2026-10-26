@@ -30,11 +30,11 @@
 
         <Box style={{ width: 298, display: 'flex', flexDirection: 'column', gap: 14, padding: '20px 22px', background: 'rgba(231,53,85,0.10)', border: '1px solid rgba(231,53,85,0.34)', borderRadius: 8 }}>
             <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#E73555', letterSpacing: 2.2 }}>BLOCKED</Text>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#F7F1E8', lineHeight: 1.35 }}>Publishing the repository</Text>
-            <Text style={{ fontSize: 15, color: 'rgba(247,241,232,0.75)', lineHeight: 1.55 }}>Creating a GitHub repo returns HTTP 403. The connector token has no repository-creation scope, so the work is committed locally and not pushed.</Text>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#F7F1E8', lineHeight: 1.35 }}>Server routes on a static host</Text>
+            <Text style={{ fontSize: 15, color: 'rgba(247,241,232,0.75)', lineHeight: 1.55 }}>GitHub Pages serves files only. The analyst route returns 404 there, so the Pit Boss falls back to its deterministic review: same numbers, no narration. Response headers cannot be set either, so the CSP ships only with the Node build.</Text>
             <Box style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: 6 }}>
-                <Text style={{ fontSize: 12, color: '#E73555', letterSpacing: 0.4, lineHeight: 1.5 }}>POST /user/repos → 403</Text>
-                <Text style={{ fontSize: 12, color: 'rgba(247,241,232,0.6)', letterSpacing: 0.4, lineHeight: 1.5 }}>"Resource not accessible by integration"</Text>
+                <Text style={{ fontSize: 12, color: '#E73555', letterSpacing: 0.4, lineHeight: 1.5 }}>GET /api/analyst → 404 on Pages</Text>
+                <Text style={{ fontSize: 12, color: 'rgba(247,241,232,0.6)', letterSpacing: 0.4, lineHeight: 1.5 }}>The Netlify target restores the headers</Text>
             </Box>
         </Box>
     </Box>
