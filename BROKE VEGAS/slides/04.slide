@@ -1,0 +1,65 @@
+<Slide style={{ width: 1280, height: 720, background: '#07060B', padding: '20px 72px', display: 'flex', flexDirection: 'column' }}>
+    <Box style={{ height: 100, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.4 }}>DETERMINISM</Text>
+            <Text style={{ fontSize: 38, fontFamily: 'Impact', color: '#F7F1E8', lineHeight: 1.1 }}>No Math.random. A seed, a tick, a hash.</Text>
+        </Box>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.5)', letterSpacing: 1.6, paddingTop: 6 }}>PURE · NO CLOCK · NO I/O</Text>
+    </Box>
+
+    <Box style={{ height: 480, marginTop: 20, flexDirection: 'row', gap: 36 }}>
+        <Box style={{ width: 640, height: 480, padding: '14px 18px', background: 'rgba(247,241,232,0.04)', border: '1px solid rgba(247,241,232,0.10)', borderRadius: 8, display: 'flex', flexDirection: 'column' }}>
+            <Box style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 10, borderBottom: '1px solid rgba(247,241,232,0.08)' }}>
+                <Text style={{ fontSize: 11, fontFamily: 'Consolas', color: '#F2C96D', letterSpacing: 0.8 }}>packages/engine/engine.ts</Text>
+                <Text style={{ fontSize: 11, fontFamily: 'Consolas', color: 'rgba(247,241,232,0.4)' }}>materializeOneTick · 414-439</Text>
+            </Box>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 0, marginTop: 12 }}>
+                {[
+                { t: "function materializeOneTick(state: EngineState) {", c: "#F2C96D" },
+                { t: "  state.tick += 1;", c: "#F7F1E8" },
+                { t: "  const marketFactor =", c: "#F7F1E8" },
+                { t: "      normalFor(state.seed, state.tick, \"shared-market\") * 0.0012;", c: "#F7F1E8" },
+                { t: "  for (const symbol of SYMBOLS) {", c: "#F2C96D" },
+                { t: "    const config = ASSETS[symbol];", c: "#F7F1E8" },
+                { t: "    const asset = state.assets[symbol];", c: "#F7F1E8" },
+                { t: "    const previous = asset.mid;", c: "#F7F1E8" },
+                { t: "    const active = activeShock(state, symbol, state.tick);", c: "#F7F1E8" },
+                { t: "    const epsilon = normalFor(state.seed, state.tick, symbol, \"epsilon\");", c: "#F7F1E8" },
+                { t: "    const logReturn =", c: "#F7F1E8" },
+                { t: "        config.drift", c: "#F7F1E8" },
+                { t: "      + config.vol * active.volatility * epsilon", c: "#F7F1E8" },
+                { t: "      + config.beta * marketFactor", c: "#F7F1E8" },
+                { t: "      + active.shock;", c: "#E73555" },
+                { t: "    const mid = roundTick(previous * Math.exp(logReturn), config.tickSize);", c: "#F7F1E8" }
+                ].map((line, i) => (
+                    <Text key={i} style={{ fontSize: 13.5, fontFamily: 'Consolas', color: line.c, lineHeight: 1.62, whiteSpace: 'pre' }}>{line.t}</Text>
+                ))}
+            </Box>
+        </Box>
+
+        <Box style={{ width: 460, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <Box style={{ flexDirection: 'row', gap: 12 }}>
+                    <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#F2C96D', width: 20 }}>01</Text>
+                    <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.78)', lineHeight: 1.5, flex: 1 }}>randomFor(seed, tick, symbol) is a pure function of its arguments. No shared PRNG cursor, so tick 900 can be computed without first computing ticks 1 to 899.</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', gap: 12 }}>
+                    <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#F2C96D', width: 20 }}>02</Text>
+                    <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.78)', lineHeight: 1.5, flex: 1 }}>The step is multiplicative. Math.exp of any real is positive, so a price can never reach zero or go negative, however bad the shock.</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', gap: 12 }}>
+                    <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#F2C96D', width: 20 }}>03</Text>
+                    <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.78)', lineHeight: 1.5, flex: 1 }}>Every mid is snapped to the asset tick grid before it is stored, so two prices are either equal or differ by at least one tick. The matcher never needs an epsilon.</Text>
+                </Box>
+            </Box>
+            <Box style={{ padding: '12px 14px', background: 'rgba(231,53,85,0.10)', borderLeft: '3px solid #E73555' }}>
+                <Text style={{ fontSize: 13.5, color: '#F7F1E8', lineHeight: 1.5 }}>Seed plus order log is the entire match. Hash both and you get one string, which is exactly what the replay page compares.</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ height: 60, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid rgba(247,241,232,0.10)', paddingTop: 12 }}>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>BROKE VEGAS · fictional markets, virtual money</Text>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>04 / 12</Text>
+    </Box>
+</Slide>

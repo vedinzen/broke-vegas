@@ -1,0 +1,46 @@
+<Slide style={{ width: 1280, height: 720, background: '#07060B', padding: '20px 72px', display: 'flex', flexDirection: 'column' }}>
+    <Box style={{ height: 100, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.4 }}>SHIPPING STATUS</Text>
+            <Text style={{ fontSize: 38, fontFamily: 'Impact', color: '#F7F1E8', lineHeight: 1.1 }}>What is real, and what is not yet.</Text>
+        </Box>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.5)', letterSpacing: 1.6, paddingTop: 6 }}>NO INVENTED INTEGRATIONS</Text>
+    </Box>
+
+    <Box style={{ height: 480, marginTop: 20, flexDirection: 'row', gap: 24 }}>
+        <Box style={{ width: 424, display: 'flex', flexDirection: 'column', gap: 14, padding: '20px 22px', background: 'rgba(247,241,232,0.06)', borderTop: '3px solid #F2C96D', border: '1px solid rgba(247,241,232,0.14)', borderRadius: 8 }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.2 }}>LIVE NOW</Text>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#F7F1E8', lineHeight: 1.35 }}>The whole game, playable in a browser</Text>
+            <Text style={{ fontSize: 15, color: 'rgba(247,241,232,0.72)', lineHeight: 1.55 }}>Create a table, ready up, trade against two engine bots, fire the meltdown, end the match, then open the verified replay. Every screen in this deck was captured from that deployment.</Text>
+            <Box style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.55)', letterSpacing: 1.2 }}>vedinzen.github.io/broke-vegas</Text>
+                <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.55)', letterSpacing: 1.2 }}>Typecheck clean · lint clean · 12 tests green</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ width: 366, display: 'flex', flexDirection: 'column', gap: 14, padding: '20px 22px', background: 'rgba(247,241,232,0.035)', border: '1px solid rgba(247,241,232,0.12)', borderRadius: 8 }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold', color: 'rgba(247,241,232,0.62)', letterSpacing: 2.2 }}>APPLIED, NOT WIRED</Text>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#F7F1E8', lineHeight: 1.35 }}>The multiplayer schema</Text>
+            <Text style={{ fontSize: 15, color: 'rgba(247,241,232,0.72)', lineHeight: 1.55 }}>Two migrations are applied to a real Supabase project: 15 tables, row-level security on every public one, private membership helpers, and hardened RPCs for room creation and match start.</Text>
+            <Box style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.55)', letterSpacing: 1.2 }}>Live order writes need a service-role key</Text>
+                <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.55)', letterSpacing: 1.2 }}>Anonymous auth is disabled on the project</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ width: 298, display: 'flex', flexDirection: 'column', gap: 14, padding: '20px 22px', background: 'rgba(231,53,85,0.10)', border: '1px solid rgba(231,53,85,0.34)', borderRadius: 8 }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#E73555', letterSpacing: 2.2 }}>BLOCKED</Text>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#F7F1E8', lineHeight: 1.35 }}>Publishing the repository</Text>
+            <Text style={{ fontSize: 15, color: 'rgba(247,241,232,0.75)', lineHeight: 1.55 }}>Creating a GitHub repo returns HTTP 403. The connector token has no repository-creation scope, so the work is committed locally and not pushed.</Text>
+            <Box style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 12, color: '#E73555', letterSpacing: 0.4, lineHeight: 1.5 }}>POST /user/repos → 403</Text>
+                <Text style={{ fontSize: 12, color: 'rgba(247,241,232,0.6)', letterSpacing: 0.4, lineHeight: 1.5 }}>"Resource not accessible by integration"</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ height: 60, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid rgba(247,241,232,0.10)', paddingTop: 12 }}>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>BROKE VEGAS · fictional markets, virtual money</Text>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>11 / 12</Text>
+    </Box>
+</Slide>

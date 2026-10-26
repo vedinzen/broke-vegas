@@ -1,0 +1,65 @@
+<Slide style={{ width: 1280, height: 720, background: '#07060B', padding: '20px 72px', display: 'flex', flexDirection: 'column' }}>
+    <Box style={{ height: 100, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.4 }}>MATCHING</Text>
+            <Text style={{ fontSize: 38, fontFamily: 'Impact', color: '#F7F1E8', lineHeight: 1.1 }}>Price first. Then sequence. Nothing else.</Text>
+        </Box>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.5)', letterSpacing: 1.6, paddingTop: 6 }}>ONE BOOK · TWO SOURCES</Text>
+    </Box>
+
+    <Box style={{ height: 480, marginTop: 20, flexDirection: 'row', gap: 36 }}>
+        <Box style={{ width: 640, height: 480, padding: '14px 18px', background: 'rgba(247,241,232,0.04)', border: '1px solid rgba(247,241,232,0.10)', borderRadius: 8, display: 'flex', flexDirection: 'column' }}>
+            <Box style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 10, borderBottom: '1px solid rgba(247,241,232,0.08)' }}>
+                <Text style={{ fontSize: 11, fontFamily: 'Consolas', color: '#F2C96D', letterSpacing: 0.8 }}>packages/engine/engine.ts</Text>
+                <Text style={{ fontSize: 11, fontFamily: 'Consolas', color: 'rgba(247,241,232,0.4)' }}>bestOpposite · 245-279 · limit filter elided</Text>
+            </Box>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 0, marginTop: 12 }}>
+                {[
+                { t: "function bestOpposite(state, incoming: Order) {", c: "#F2C96D" },
+                { t: "  const candidates: Array<Order | HouseQuote> = [", c: "#F7F1E8" },
+                { t: "    ...state.quotes.filter((q) => q.side !== incoming.side),", c: "#F7F1E8" },
+                { t: "    ...state.orders.filter((o) =>", c: "#F7F1E8" },
+                { t: "      isOpen(o) && o.side !== incoming.side &&", c: "#F7F1E8" },
+                { t: "      o.playerId !== incoming.playerId),   // no self-trade", c: "rgba(247,241,232,0.36)" },
+                { t: "  ];", c: "#F7F1E8" },
+                { t: "  return candidates.sort((a, b) => {", c: "#F7F1E8" },
+                { t: "    const priceOrder = incoming.side === \"buy\"", c: "#F7F1E8" },
+                { t: "      ? priceOf(a) - priceOf(b)", c: "#F7F1E8" },
+                { t: "      : priceOf(b) - priceOf(a);", c: "#F7F1E8" },
+                { t: "    return priceOrder || a.seq - b.seq;    // price, then time", c: "#E73555" },
+                { t: "  })[0] ?? null;", c: "#F7F1E8" },
+                { t: "}", c: "#F7F1E8" },
+                { t: "// aggressor pays the resting price, never its own limit", c: "rgba(247,241,232,0.36)" },
+                { t: "executeFill(state, order, opposite, priceOf(opposite), qty);", c: "#F7F1E8" }
+                ].map((line, i) => (
+                    <Text key={i} style={{ fontSize: 13.5, fontFamily: 'Consolas', color: line.c, lineHeight: 1.5, whiteSpace: 'pre' }}>{line.t}</Text>
+                ))}
+            </Box>
+        </Box>
+
+        <Box style={{ width: 460, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <Box style={{ flexDirection: 'row', gap: 12 }}>
+                    <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#F2C96D', width: 20 }}>01</Text>
+                    <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.78)', lineHeight: 1.5, flex: 1 }}>One book, two sources. House quotes and player orders are merged into a single candidate list, so there is no separate market-maker book to keep in sync.</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', gap: 12 }}>
+                    <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#F2C96D', width: 20 }}>02</Text>
+                    <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.78)', lineHeight: 1.5, flex: 1 }}>seq is stamped inside the engine at submit. Time priority is therefore a counter, not a wall clock, and client clock skew cannot reorder anything.</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', gap: 12 }}>
+                    <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#F2C96D', width: 20 }}>03</Text>
+                    <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.78)', lineHeight: 1.5, flex: 1 }}>Self-trade is excluded in the filter, before matching. It is never a post-hoc rejection that could leave half an order filled against yourself.</Text>
+                </Box>
+            </Box>
+            <Box style={{ padding: '12px 14px', background: 'rgba(231,53,85,0.10)', borderLeft: '3px solid #E73555' }}>
+                <Text style={{ fontSize: 13.5, color: '#F7F1E8', lineHeight: 1.5 }}>The aggressor pays the resting price. A limit order can fill better than its limit, never worse, and a market order walks the book until it runs out of cash.</Text>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ height: 60, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid rgba(247,241,232,0.10)', paddingTop: 12 }}>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>BROKE VEGAS · fictional markets, virtual money</Text>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>05 / 12</Text>
+    </Box>
+</Slide>

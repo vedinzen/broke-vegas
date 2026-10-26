@@ -1,0 +1,50 @@
+<Slide style={{ width: 1280, height: 720, background: '#07060B', padding: '20px 72px', display: 'flex', flexDirection: 'column' }}>
+    <Box style={{ height: 100, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.4 }}>THE MELTDOWN</Text>
+            <Text style={{ fontSize: 38, fontFamily: 'Impact', color: '#F7F1E8', lineHeight: 1.1 }}>One button ruins the group chat.</Text>
+        </Box>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.5)', letterSpacing: 1.6, paddingTop: 6 }}>HOST-ONLY · 20-TICK COOLDOWN</Text>
+    </Box>
+
+    <Box style={{ height: 480, marginTop: 20, flexDirection: 'row', gap: 36 }}>
+        <Box style={{ width: 604, display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <Image src="assets/06-meltdown.png" style={{ width: 604, height: 378, objectFit: 'cover', border: '1px solid rgba(231,53,85,0.35)', borderRadius: 10, boxShadow: '0 24px 60px rgba(0,0,0,0.55)' }} />
+            <Text style={{ fontSize: 15, color: 'rgba(247,241,232,0.62)', lineHeight: 1.5 }}>The House re-quotes mid-crash. Resting player orders fill at the new quote — limit-or-better — while the tape keeps printing.</Text>
+        </Box>
+
+        <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 13, fontWeight: 'bold', color: 'rgba(247,241,232,0.55)', letterSpacing: 2 }}>NET EQUITY, ONE TICK AFTER THE SHOCK</Text>
+                <Box style={{ flexDirection: 'row', alignItems: 'baseline', gap: 16 }}>
+                    <Text style={{ fontSize: 62, fontWeight: 'bold', color: '#E73555', lineHeight: 1 }}>₹98,775</Text>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#E73555' }}>−1.23%</Text>
+                </Box>
+                <Text style={{ fontSize: 16, color: 'rgba(247,241,232,0.65)' }}>From ₹1,00,000 · severity 79/100 · a 25-share position held straight through it</Text>
+            </Box>
+
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 13, fontWeight: 'bold', color: 'rgba(247,241,232,0.55)', letterSpacing: 2 }}>LEADERBOARD AT TICK 21 · MARKED TO THE SAME MID</Text>
+                <Box style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', padding: '9px 0', borderBottom: '1px solid rgba(247,241,232,0.12)' }}>
+                    <Text style={{ fontSize: 17, color: '#F7F1E8' }}>1 · Reversion Rita</Text>
+                    <Text style={{ fontSize: 17, fontWeight: 'bold', color: 'rgba(247,241,232,0.8)' }}>₹99,812 · −0.19%</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', padding: '9px 0', borderBottom: '1px solid rgba(247,241,232,0.12)' }}>
+                    <Text style={{ fontSize: 17, color: '#F7F1E8' }}>2 · Momentum Mick</Text>
+                    <Text style={{ fontSize: 17, fontWeight: 'bold', color: 'rgba(247,241,232,0.8)' }}>₹99,618 · −0.38%</Text>
+                </Box>
+                <Box style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', padding: '9px 0' }}>
+                    <Text style={{ fontSize: 17, color: '#F7F1E8' }}>3 · You</Text>
+                    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#E73555' }}>₹98,984 · −1.00%</Text>
+                </Box>
+            </Box>
+
+            <Text style={{ fontSize: 15, color: 'rgba(247,241,232,0.6)', lineHeight: 1.5 }}>All three equity curves cross inside the crash window. Nobody is repriced later, and nobody is repriced privately.</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ height: 60, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid rgba(247,241,232,0.10)', paddingTop: 12 }}>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>BROKE VEGAS · fictional markets, virtual money</Text>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>08 / 12</Text>
+    </Box>
+</Slide>

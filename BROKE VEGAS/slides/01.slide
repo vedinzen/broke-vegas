@@ -1,0 +1,40 @@
+<Slide style={{ width: 1280, height: 720, background: '#07060B', padding: '54px 72px', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+    <Image src="assets/01-landing-hero.png" style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 720, objectFit: 'cover', opacity: 0.9 }} />
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 860, height: 720, background: 'linear-gradient(90deg, #07060B 42%, rgba(7,6,11,0.82) 68%, rgba(7,6,11,0) 100%)' }} />
+    <Box style={{ position: 'absolute', top: 0, left: 0, width: 520, height: 720, background: 'radial-gradient(circle at 12% 62%, rgba(231,53,85,0.16) 0%, rgba(7,6,11,0) 62%)' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 9, height: 9, background: '#F2C96D', borderRadius: 9 }} />
+            <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.6 }}>A MULTIPLAYER TRADING ARENA · VIRTUAL MONEY ONLY</Text>
+        </Box>
+
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+            <Text style={{ fontSize: 72, fontFamily: 'Impact', fontWeight: 'bold', color: '#F7F1E8', lineHeight: 0.98, letterSpacing: 1 }}>THE MARKET IS<br />A CASINO.</Text>
+            <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#E73555', lineHeight: 1.15 }}>At least here, you know it.</Text>
+            <Text style={{ fontSize: 19, color: 'rgba(247,241,232,0.78)', lineHeight: 1.55, width: 560 }}>Six fictional tickers. Three seats. ₹1,00,000 of money that has never existed. Trade the chaos, outsmart your friends, and try not to go broke.</Text>
+        </Box>
+
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <Box style={{ width: 520, height: 1, background: 'rgba(247,241,232,0.22)' }} />
+            <Box style={{ flexDirection: 'row', gap: 56 }}>
+                <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <Text style={{ fontSize: 12, color: 'rgba(247,241,232,0.5)', letterSpacing: 2 }}>LIVE INDEX</Text>
+                    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#F7F1E8' }}>99.95</Text>
+                </Box>
+                <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <Text style={{ fontSize: 12, color: 'rgba(247,241,232,0.5)', letterSpacing: 2 }}>ENGINE TICK</Text>
+                    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#F7F1E8' }}>12</Text>
+                </Box>
+                <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <Text style={{ fontSize: 12, color: 'rgba(247,241,232,0.5)', letterSpacing: 2 }}>STAKES</Text>
+                    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#F7F1E8' }}>₹1,00,000</Text>
+                </Box>
+                <Box style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <Text style={{ fontSize: 12, color: 'rgba(247,241,232,0.5)', letterSpacing: 2 }}>STATUS</Text>
+                    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#E73555' }}>LIVE</Text>
+                </Box>
+            </Box>
+        </Box>
+    </Box>
+</Slide>

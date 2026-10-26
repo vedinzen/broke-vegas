@@ -1,0 +1,30 @@
+<Slide style={{ width: 1280, height: 720, background: '#07060B', padding: '54px 72px', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+    <Box style={{ position: 'absolute', top: 0, right: 0, width: 620, height: 720, background: 'radial-gradient(circle at 78% 50%, rgba(231,53,85,0.22) 0%, rgba(7,6,11,0) 66%)' }} />
+    <Box style={{ position: 'absolute', top: 0, right: 0, width: 8, height: 720, background: '#E73555' }} />
+
+    <Box style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+            <Box style={{ width: 9, height: 9, background: '#F2C96D', borderRadius: 9 }} />
+            <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.6 }}>BROKE VEGAS · LIVE AND PLAYABLE</Text>
+        </Box>
+
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
+            <Text style={{ fontSize: 64, fontFamily: 'Impact', color: '#F7F1E8', lineHeight: 1.0 }}>PLACE YOUR BETS.<br />PLACE YOUR ORDERS.</Text>
+            <Text style={{ fontSize: 20, color: 'rgba(247,241,232,0.7)', lineHeight: 1.5, width: 620 }}>Six fictional tickers. Three seats. One meltdown button that somebody will press too early. Bring people you enjoy losing to.</Text>
+        </Box>
+
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <Box style={{ width: 760, height: 1, background: 'rgba(247,241,232,0.22)' }} />
+            <Box style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', width: 760 }}>
+                <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    <Text style={{ fontSize: 12, color: 'rgba(247,241,232,0.5)', letterSpacing: 2.2 }}>OPEN THE ARENA</Text>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 0.4 }}>vedinzen.github.io/broke-vegas</Text>
+                </Box>
+                <Box style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'flex-end' }}>
+                    <Text style={{ fontSize: 12, color: 'rgba(247,241,232,0.5)', letterSpacing: 2.2 }}>REMEMBER</Text>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#E73555' }}>Virtual money only. No advice.</Text>
+                </Box>
+            </Box>
+        </Box>
+    </Box>
+</Slide>

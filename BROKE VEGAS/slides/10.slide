@@ -1,0 +1,53 @@
+<Slide style={{ width: 1280, height: 720, background: '#07060B', padding: '20px 72px', display: 'flex', flexDirection: 'column' }}>
+    <Box style={{ height: 100, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.4 }}>ARCHITECTURE</Text>
+            <Text style={{ fontSize: 38, fontFamily: 'Impact', color: '#F7F1E8', lineHeight: 1.1 }}>Four layers, one job each.</Text>
+        </Box>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.5)', letterSpacing: 1.6, paddingTop: 6 }}>THE SEAM IS THE POINT</Text>
+    </Box>
+
+    <Box style={{ height: 480, marginTop: 20, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Box style={{ width: 1040, height: 96, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 26px', background: 'rgba(247,241,232,0.055)', border: '1px solid rgba(247,241,232,0.12)', borderRadius: 8 }}>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 11, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.2 }}>01 · INTERFACE</Text>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F7F1E8' }}>Next.js App Router · terminal, lobby, results, replay</Text>
+            </Box>
+            <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.55)', width: 240, textAlign: 'right' }}>Server shell, client state. No data fetching in the terminal loop.</Text>
+        </Box>
+
+        <Box style={{ width: 960, height: 96, marginLeft: 40, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 26px', background: 'rgba(247,241,232,0.055)', border: '1px solid rgba(247,241,232,0.12)', borderRadius: 8 }}>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 11, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.2 }}>02 · GATEWAY</Text>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F7F1E8' }}>Web Worker · one interface, two implementations</Text>
+            </Box>
+            <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.55)', width: 230, textAlign: 'right' }}>Demo Mode runs the engine in the browser, off the main thread.</Text>
+        </Box>
+
+        <Box style={{ width: 880, height: 96, marginLeft: 80, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 26px', background: 'rgba(231,53,85,0.10)', border: '1px solid rgba(231,53,85,0.32)', borderRadius: 8 }}>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 11, fontWeight: 'bold', color: '#E73555', letterSpacing: 2.2 }}>03 · ENGINE</Text>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F7F1E8' }}>Pure TypeScript · zero runtime dependencies</Text>
+            </Box>
+            <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.6)', width: 210, textAlign: 'right' }}>Prices, matching, accounting, replay. Synchronous and testable.</Text>
+        </Box>
+
+        <Box style={{ width: 800, height: 96, marginLeft: 120, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 26px', background: 'rgba(247,241,232,0.055)', border: '1px solid rgba(247,241,232,0.12)', borderRadius: 8 }}>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <Text style={{ fontSize: 11, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.2 }}>04 · DATA</Text>
+                <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F7F1E8' }}>Supabase Postgres · 15 tables, RLS everywhere</Text>
+            </Box>
+            <Text style={{ fontSize: 14, color: 'rgba(247,241,232,0.55)', width: 190, textAlign: 'right' }}>Match secrets have no policy: service role only.</Text>
+        </Box>
+
+        <Box style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingTop: 10, borderTop: '1px solid rgba(247,241,232,0.10)' }}>
+            <Text style={{ fontSize: 11, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.2 }}>LOCKED VERSIONS</Text>
+            <Text style={{ fontSize: 12, fontFamily: 'Consolas', color: 'rgba(247,241,232,0.62)' }}>next 16.4.3 · react 19.3 · typescript 5 · tailwind 4 · three 0.186 · zustand 5 · vitest 5 · playwright 1.64</Text>
+        </Box>
+    </Box>
+
+    <Box style={{ height: 60, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid rgba(247,241,232,0.10)', paddingTop: 12 }}>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>BROKE VEGAS · fictional markets, virtual money</Text>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>10 / 12</Text>
+    </Box>
+</Slide>

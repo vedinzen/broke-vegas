@@ -1,0 +1,58 @@
+<Slide style={{ width: 1280, height: 720, background: '#07060B', padding: '20px 72px', display: 'flex', flexDirection: 'column' }}>
+    <Box style={{ height: 100, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <Box style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#F2C96D', letterSpacing: 2.4 }}>THE PREMISE</Text>
+            <Text style={{ fontSize: 38, fontFamily: 'Impact', color: '#F7F1E8', lineHeight: 1.1 }}>Four rules. No exit.</Text>
+        </Box>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.5)', letterSpacing: 1.6, paddingTop: 6 }}>RULES OF THE FLOOR</Text>
+    </Box>
+
+    <Box style={{ height: 480, marginTop: 20, flexDirection: 'row', gap: 56 }}>
+        <Box style={{ width: 420, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: 480 }}>
+            <Box style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#F7F1E8', lineHeight: 1.3 }}>Everyone has been told the market is a casino.</Text>
+                <Text style={{ fontSize: 18, color: 'rgba(247,241,232,0.72)', lineHeight: 1.55 }}>BROKE VEGAS stops pretending otherwise. Three people, one order book, the same fictional cash, and a group chat that does what group chats do.</Text>
+                <Text style={{ fontSize: 18, color: 'rgba(247,241,232,0.72)', lineHeight: 1.55 }}>No deposits, no leverage, no real tickers.</Text>
+            </Box>
+            <Box style={{ padding: '14px 16px', background: 'rgba(231,53,85,0.10)', borderLeft: '3px solid #E73555' }}>
+                <Text style={{ fontSize: 16, color: '#F7F1E8', lineHeight: 1.45 }}>The only thing you can lose is the argument about who was right.</Text>
+            </Box>
+        </Box>
+
+        <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 22, paddingBottom: 18, borderBottom: '1px solid rgba(247,241,232,0.12)' }}>
+                <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#F2C96D', width: 74 }}>01</Text>
+                <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F7F1E8' }}>₹1,00,000 of money that does not exist</Text>
+                    <Text style={{ fontSize: 16, color: 'rgba(247,241,232,0.66)', lineHeight: 1.5 }}>Identical starting capital, integer paise, no top-ups. Everyone is marked to the same mid, every tick.</Text>
+                </Box>
+            </Box>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 22, paddingBottom: 18, borderBottom: '1px solid rgba(247,241,232,0.12)' }}>
+                <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#F2C96D', width: 74 }}>02</Text>
+                <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F7F1E8' }}>Three seats at one table</Text>
+                    <Text style={{ fontSize: 16, color: 'rgba(247,241,232,0.66)', lineHeight: 1.5 }}>Two friends and you — or two bots running the exact same engine, order book and fee-free ledger.</Text>
+                </Box>
+            </Box>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 22, paddingBottom: 18, borderBottom: '1px solid rgba(247,241,232,0.12)' }}>
+                <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#F2C96D', width: 74 }}>03</Text>
+                <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F7F1E8' }}>Six fictional companies</Text>
+                    <Text style={{ fontSize: 16, color: 'rgba(247,241,232,0.66)', lineHeight: 1.5 }}>NEON, CHIP, ACES, DICE, LUCK, JKPT. Invented tickers, invented volatility, zero resemblance to a real exchange.</Text>
+                </Box>
+            </Box>
+            <Box style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 22 }}>
+                <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#E73555', width: 74 }}>04</Text>
+                <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F7F1E8' }}>Zero rupees convert, ever</Text>
+                    <Text style={{ fontSize: 16, color: 'rgba(247,241,232,0.66)', lineHeight: 1.5 }}>Nothing cashes out. There is no withdrawal button, because there is nothing to withdraw.</Text>
+                </Box>
+            </Box>
+        </Box>
+    </Box>
+
+    <Box style={{ height: 60, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid rgba(247,241,232,0.10)', paddingTop: 12 }}>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>BROKE VEGAS · fictional markets, virtual money</Text>
+        <Text style={{ fontSize: 13, color: 'rgba(247,241,232,0.45)' }}>02 / 12</Text>
+    </Box>
+</Slide>
