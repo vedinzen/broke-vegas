@@ -81,10 +81,12 @@ async function main() {
     // 2 · the lobby flow works with no server: create a table, see a room code
     await check("/lobby/", "lobby");
     await page.getByRole("button", { name: /^Create table/i }).click();
-    await page.getByText(/Room code/i).first().waitFor({ state: "visible", timeout: 15_000 });
-    const roomText = await page.locator("body").innerText();
-    const codes = (roomText.match(/\b[A-Z0-9]{6}\b/g) ?? []).filter((code) => /\d/.test(code));
-    state.roomCodes = [...new Set(codes)].slice(0, 3).join(", ") || "none";
+    const codeNode = page.locator(".room-code strong").first();
+    await codeNode.waitFor({ state: "visible", timeout: 15_000 });
+    state.roomCodes = (await codeNode.innerText()).trim() || "none";
+    if (!/^[A-Z0-9]{6}$/.test(state.roomCodes)) {
+      problems.push(`lobby: room code was "${state.roomCodes}", expected six letters or digits`);
+    }
     await page.screenshot({ path: `${shots}/pages-02-lobby.png` });
 
     // 3 · start the match and confirm the engine ticks in the browser
