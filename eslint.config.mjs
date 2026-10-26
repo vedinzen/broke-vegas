@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The static export lands here; linting minified bundles reports nonsense
+    // like "React Hook T.useRef is called in function hp".
+    ".next-export/**",
   ]),
 ]);
 

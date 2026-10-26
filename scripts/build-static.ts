@@ -11,7 +11,9 @@
  * the value we need to express.
  */
 import { spawnSync } from "node:child_process";
-import { existsSync, rmSync } from "node:fs";
+import { existsSync, renameSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 
 const baseArg = process.argv.find((arg) => arg.startsWith("--base="));
 const base = baseArg ? baseArg.slice("--base=".length) : "/broke-vegas";
@@ -21,11 +23,17 @@ const env = { ...process.env, EXPORT: "1", EXPORT_BASE: base };
 console.log(`build:static — basePath ${base === "" ? '"" (root)' : base}`);
 
 // Clear the previous artifact ourselves. Next also does this, but on Windows the
-// delete can go through the shell's trash shim and time out on a large tree,
+// delete can be routed through a trash shim that times out on a large tree,
 // which surfaces as a build failure after a perfectly good compile.
 const distDir = ".next-export";
 if (existsSync(distDir)) {
-  rmSync(distDir, { recursive: true, force: true });
+  try {
+    rmSync(distDir, { recursive: true, force: true });
+  } catch {
+    // Deleting is unavailable; moving the tree out of the way is enough and is
+    // a single rename instead of a few thousand unlinks.
+    renameSync(distDir, join(tmpdir(), `broke-vegas-export-${Date.now()}`));
+  }
 }
 
 const build = spawnSync("next", ["build"], { stdio: "inherit", env, shell: true });

@@ -27,7 +27,18 @@ export function CinematicLayer() {
     }
     return () => { active = false; cancel(); };
   }, [tier]);
-  if (tier === "none") return <StaticPoster />;
+  // The poster must stay inside `.cinematic-layer`. Returned bare it becomes a
+  // direct child of `.landing-page`, and the layout rule that lifts page content
+  // above the backdrop (`position: relative; z-index: 2`) then turns it into an
+  // in-flow block that covers the hero — a headline-free splash screen on every
+  // device without WebGL, and on any device asking for reduced motion or data.
+  if (tier === "none") {
+    return (
+      <div className="cinematic-layer" aria-hidden="true">
+        <StaticPoster />
+      </div>
+    );
+  }
   return (
     <div className={`cinematic-layer ${mounted ? "scene-ready" : ""}`}>
       <StaticPoster />

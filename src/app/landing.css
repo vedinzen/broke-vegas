@@ -8,7 +8,7 @@
 .static-poster .poster-fade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(7,6,11,.6),transparent 70%),linear-gradient(0deg,var(--obsidian),transparent 35%); }
 .poster-compact { position: relative; }
 .landing-scrim { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg,rgba(7,6,11,.94) 0%,rgba(7,6,11,.72) 42%,rgba(7,6,11,.14) 76%),linear-gradient(0deg,var(--obsidian) 0%,transparent 35%); }
-.landing-page > *:not(.cinematic-layer):not(.landing-scrim) { position: relative; z-index: 2; }
+.landing-page > *:not(.cinematic-layer):not(.landing-scrim):not(.static-poster) { position: relative; z-index: 2; }
 .landing-nav { position: absolute; top: 22px; left: clamp(18px,4vw,58px); right: clamp(18px,4vw,58px); min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 7px 14px; background: rgba(13,9,19,.45); backdrop-filter: blur(12px) saturate(140%); }
 .landing-nav > a { display: inline-flex; width: 200px; }
 .landing-nav svg { width: 190px; height: auto; }

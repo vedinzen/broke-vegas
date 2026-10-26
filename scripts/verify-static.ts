@@ -105,6 +105,45 @@ async function main() {
     await page.screenshot({ path: `${shots}/pages-failure.png` }).catch(() => {});
   }
 
+  // 5 · the no-WebGL path. Reduced motion drops the 3D scene entirely, so this
+  // is also the check that the poster stays behind the hero instead of becoming
+  // an in-flow block that covers the headline and every call to action.
+  try {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" });
+    const flat = await context.newPage();
+    await flat.goto(`${base}/`, { waitUntil: "networkidle" });
+    await flat.waitForSelector("html[data-hydrated='true']", { timeout: 30_000 });
+
+    const layout = await flat.evaluate(`(() => {
+      const hero = document.querySelector(".landing-hero");
+      const h1 = document.querySelector("h1");
+      const cta = document.querySelector(".hero-actions a");
+      if (!hero || !h1 || !cta) return { missing: true };
+      const hr = h1.getBoundingClientRect();
+      const cr = cta.getBoundingClientRect();
+      const atCta = document.elementFromPoint(cr.left + cr.width / 2, cr.top + cr.height / 2);
+      return {
+        missing: false,
+        h1Top: Math.round(hr.top),
+        h1Width: Math.round(hr.width),
+        h1InViewport: hr.top >= 0 && hr.top < window.innerHeight && hr.width > 0,
+        ctaHit: atCta ? cta.contains(atCta) : false,
+        posterIsDirectChild: Boolean(document.querySelector(".landing-page > .static-poster")),
+      };
+    })()`) as Record<string, unknown>;
+
+    if (layout.missing) problems.push("reduced-motion: hero, h1 or call to action missing");
+    else {
+      if (!layout.h1InViewport) problems.push(`reduced-motion: h1 starts at y=${layout.h1Top}, outside the first screen`);
+      if (!layout.ctaHit) problems.push("reduced-motion: the call to action is covered by another element");
+      if (layout.posterIsDirectChild) problems.push("reduced-motion: the poster escaped .cinematic-layer and became page flow");
+      await flat.screenshot({ path: `${shots}/pages-04-reduced-motion.png` });
+    }
+    await context.close();
+  } catch (error) {
+    problems.push(`reduced-motion step failed: ${(error as Error).message.split("\n")[0].slice(0, 160)}`);
+  }
+
   await browser.close();
   report();
   process.exit(problems.length === 0 ? 0 : 1);

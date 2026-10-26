@@ -157,6 +157,31 @@ function CameraRig() {
   return null;
 }
 
+/**
+ * The marquee and skyline are laid out for a landscape frame. On a portrait
+ * canvas the horizontal field collapses and the composition falls outside the
+ * frustum, leaving a black hero, so the vertical FOV widens as the viewport
+ * narrows to keep the same horizontal coverage.
+ */
+function FitCamera() {
+  const { camera, size } = useThree();
+  useEffect(() => {
+    const perspective = camera as THREE.PerspectiveCamera;
+    const aspect = size.width / Math.max(1, size.height);
+    const base = 42;
+    const reference = 1.6;
+    const fov = aspect >= reference
+      ? base
+      : Math.min(72, THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(base) / 2) * (reference / aspect))));
+    // A three.js camera is a mutable object by design; the React Compiler rule
+    // assumes values read from context are immutable.
+    // eslint-disable-next-line react-hooks/immutability
+    perspective.fov = fov;
+    perspective.updateProjectionMatrix();
+  }, [camera, size]);
+  return null;
+}
+
 export default function CinematicScene({ tier }: { tier: QualityTier }) {
   const [dpr, setDpr] = useState<[number, number]>([1, tier === "high" ? 1.75 : 1.35]);
   return (
@@ -172,6 +197,7 @@ export default function CinematicScene({ tier }: { tier: QualityTier }) {
       <Marquee tier={tier} />
       <Chips tier={tier} />
       <CameraRig />
+      <FitCamera />
       <Environment resolution={128}><Lightformer intensity={1.5} position={[0,4,5]} color="#f2c96d" /><Lightformer intensity={1} position={[-5,2,3]} color="#e73555" /></Environment>
       {tier === "high" && <EffectComposer><Bloom mipmapBlur intensity={0.75} luminanceThreshold={0.72} luminanceSmoothing={0.2} /><Vignette eskil={false} offset={0.18} darkness={0.72} /></EffectComposer>}
     </Canvas>
