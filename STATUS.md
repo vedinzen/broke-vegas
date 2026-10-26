@@ -23,7 +23,7 @@ existed. Everything below the "not wired" line above was built and verified in t
 
 | Target | URL | Server routes | Security headers |
 |---|---|---|---|
-| Node host (`next build` + `next start`) | vedinzen.github.io/broke-vegas | Yes | CSP, HSTS, nosniff, Referrer-Policy, Permissions-Policy |
+| Node host (`next build` + `next start`) | vedinzen.github.io/broke-vegas (requires `?sharecode=`) | Yes | CSP, HSTS, nosniff, Referrer-Policy, Permissions-Policy |
 | GitHub Pages (`npm run build:static`) | vedinzen.github.io/broke-vegas | No | None — Pages cannot set response headers |
 
 `next.config.ts` branches on `EXPORT`. The default build is unchanged; `EXPORT=1` switches to
