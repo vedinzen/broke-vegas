@@ -1,0 +1,30 @@
+# Netlify deploy target — static export served from the domain root.
+#
+# The GitHub Pages build sets basePath "/broke-vegas" because project sites live
+# under /<repo>. Netlify serves at "/", so this build passes --base= instead.
+# Everything else is the same artifact: `npm run build:static:root` is
+# `EXPORT=1 EXPORT_BASE="" next build` plus the RSC prefetch fix-up.
+
+[build]
+  command = "npm run build:static:root"
+  publish = ".next-export"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# Pages cannot set response headers; Netlify can, so the CSP that the Node build
+# gets from next.config.ts is restored here.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

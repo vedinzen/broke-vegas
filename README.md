@@ -6,8 +6,7 @@ order book, and a host who can press a button marked **TRIGGER MARKET MELTDOWN**
 No real money, no real tickers, no leverage, no deposits. The only thing you can lose is the
 argument about who was right.
 
-- **Live (GitHub Pages):** https://vedinzen.github.io/broke-vegas/
-- **Live (full server build):** https://vedinzen.github.io/broke-vegas/
+- **Live:** https://vedinzen.github.io/broke-vegas/
 - **Repository:** https://github.com/vedinzen/broke-vegas
 
 ## What is actually built
@@ -71,12 +70,17 @@ over a Web Worker. A live implementation would sit behind the same interface.
 
 ## Deployment
 
-Two targets, one codebase. `next.config.ts` branches on `EXPORT`:
+One codebase, two shapes. `next.config.ts` branches on `EXPORT`:
 
-| Target | Command | What you get |
-| :--- | :--- | :--- |
-| Full server | `npm run build && npm start` | Everything, including `/api/analyst` and CSP headers |
-| GitHub Pages | `npm run build:static` | Static export at `basePath: /broke-vegas`, no server routes, no headers |
+| Target | Command | basePath | What you get |
+| :--- | :--- | :--- | :--- |
+| Full server | `npm run build && npm start` | — | Everything, including `/api/analyst` and CSP headers |
+| GitHub Pages | `npm run build:static` | `/broke-vegas` | Static export for a project site |
+| Netlify / root host | `npm run build:static:root` | `""` | The same export, served at the domain root |
+
+`netlify.toml` is committed: connect the repo, and Netlify runs
+`npm run build:static:root` and publishes `.next-export`. Because Netlify *can* set response
+headers, the CSP and HSTS that the Node build gets from `next.config.ts` are declared there too.
 
 `npm run build:static` does three things: sets `EXPORT=1`, builds with `output: "export"`, then runs
 `scripts/flatten-rsc-prefetch.mjs`. That last step exists because Next 16 writes RSC prefetch
@@ -94,6 +98,9 @@ npm run build:static
 node scripts/serve-static.mjs /tmp/pages-root 4319   # in a second terminal
 npm run verify:static                                # hydration, 3D canvas, room code, MARKET OPEN
 ```
+
+For a root-hosted build, serve `.next-export` directly and pass the root URL to the verifier
+(`tsx scripts/verify-static.ts http://127.0.0.1:4319`).
 
 ## Known limitations
 
@@ -120,4 +127,4 @@ npm run verify:static  # the exported artifact, in Chrome
 ## Credits
 
 Fictional assets, fictional company names, fictional Pit Boss. Typefaces are Geist, Geist Mono and
-Tilt Neon. See `CREDITS.md` for the build ledger and `DECISIONS.md` for the reasoning.
+Tilt Neon. See `DECISIONS.md` for the reasoning behind the engine and UI choices.

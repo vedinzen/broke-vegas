@@ -47,5 +47,3 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 
-/.local/
-/.local-ai/

@@ -9,7 +9,6 @@ Last updated: 2026-10-26, after the GitHub import and Pages deploy.
 | GitHub connector | **No** | `list_installed_plugins` → `status: auth-required`; `reconnect_plugin` was cancelled by the user | Connector authorization. Not needed — the git credential works |
 | GitHub Pages | **Yes** | Pages enabled with `build_type: workflow`; run `40314710507` → `completed/success`; https://vedinzen.github.io/broke-vegas/ returns HTTP 200 | None |
 | Static export | **Yes** | `npm run build:static` → 8 prerendered routes; `scripts/verify-static.ts` against the live URL → `problems 0`, 1 canvas, room code created, MARKET OPEN reached | `/api/analyst` and CSP headers do not exist on a static host |
-| Static deployment | **Yes** | https://vedinzen.github.io/broke-vegas/ returns HTTP 200 and the real hero HTML | None |
 | Supabase schema | **Yes** | Migrations `001_initial` and `002_advisor_hardening` applied to `xkeyzbpepxybmjrpccxe`; 15 public tables, RLS enabled on every one | None |
 | Supabase live multiplayer | **No** | No `SupabaseGateway` implementation, no service-role key in `.env.local`, anonymous auth disabled (`anonymous_users: false`) | Server secret plus an auth flow. The app stays in Demo Mode and the badge says so |
 | Playwright + axe QA | Yes (dev only) | `tests/e2e/demo.spec.ts`; found and fixed a real 4.17:1 contrast failure | None |
@@ -23,7 +22,7 @@ existed. Everything below the "not wired" line above was built and verified in t
 
 | Target | URL | Server routes | Security headers |
 |---|---|---|---|
-| Node host (`next build` + `next start`) | vedinzen.github.io/broke-vegas (requires `?sharecode=`) | Yes | CSP, HSTS, nosniff, Referrer-Policy, Permissions-Policy |
+| Node host (`next build` + `next start`) | any VPS, container, or Node platform | Yes | CSP, HSTS, nosniff, Referrer-Policy, Permissions-Policy |
 | GitHub Pages (`npm run build:static`) | vedinzen.github.io/broke-vegas | No | None — Pages cannot set response headers |
 
 `next.config.ts` branches on `EXPORT`. The default build is unchanged; `EXPORT=1` switches to
