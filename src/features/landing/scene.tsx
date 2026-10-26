@@ -113,7 +113,7 @@ function Marquee({ tier }: { tier: QualityTier }) {
   });
   return (
     <group position={[0, 3.5, -4]} rotation={[0, -0.08, 0]}>
-      <Text3D font="/fonts/helvetiker_regular.typeface.json" size={1.1} height={0.25} curveSegments={tier === "high" ? 8 : 4} bevelEnabled bevelSize={0.035} bevelThickness={0.03} bevelSegments={2} position={[-5.7,0,0]}>
+      <Text3D font={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/fonts/helvetiker_regular.typeface.json`} size={1.1} height={0.25} curveSegments={tier === "high" ? 8 : 4} bevelEnabled bevelSize={0.035} bevelThickness={0.03} bevelSegments={2} position={[-5.7,0,0]}>
         BROKE VEGAS
         <meshStandardMaterial color="#e73555" emissive="#e73555" emissiveIntensity={2.6} metalness={0.3} roughness={0.2} toneMapped={false} />
       </Text3D>

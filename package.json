@@ -14,7 +14,9 @@
     "sim": "tsx scripts/sim.ts",
     "secret-scan": "node scripts/secret-scan.mjs",
     "qa": "playwright test",
-    "deck": "tsx scripts/generate-deck.ts"
+    "serve:static": "node scripts/serve-static.mjs .next-export",
+    "verify:static": "tsx scripts/verify-static.ts http://127.0.0.1:4319/broke-vegas",
+    "build:static": "tsx scripts/build-static.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "1.3.1",
